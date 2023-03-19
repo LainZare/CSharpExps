@@ -34,9 +34,8 @@ namespace Exp4
             #endregion
 
             #region 布雷
-            List<int> randNums = new List<int>();
-
             Random rand = new Random();
+            List<int> randNums = new List<int>();
             int temp;
             while (randNums.Count < _mines)
             {
@@ -46,18 +45,19 @@ namespace Exp4
                     randNums.Add(temp);
                 }
             }
+            // 填数字，以雷为中心，八个方向若存在，则该位置+1
             int r, c;
-            // 填数字
+            int i, j;
             foreach (int item in randNums)
             {
                 r = item / _col;
                 c = item % _col;
 
-                for (int i = r - 1; i <= r + 1; i++)
+                for (i = r - 1; i <= r + 1; i++)
                 {
                     if (i >= 0 && i < _row)
                     {
-                        for (int j = c - 1; j <= c + 1; j++)
+                        for (j = c - 1; j <= c + 1; j++)
                         {
                             if (j >= 0 && j < _col)
                             {
@@ -67,51 +67,11 @@ namespace Exp4
                     }
                 }
 
-                /*
-                if (r - 1 >= 0)
-                {
-                    _map[r - 1, c]++;
-                    if (c - 1 >= 0)
-                        _map[r - 1, c - 1]++;
-                    if (c + 1 <= _col)
-                        _map[r - 1, c + 1]++;
-                }
-                if (r + 1 <= _row)
-                {
-                    _map[r + 1, c]++;
-                    if (c - 1)
-                }
-                */
-                /*
-                if (r > 0 && r < _row - 1 && c > 0 && c < _col - 1)
-                {
-                    _map[r - 1, c - 1]++;
-                    _map[r - 1, c]++;
-                    _map[r - 1, c + 1]++;
-                    _map[r + 1, c - 1]++;
-                    _map[r + 1, c]++;
-                    _map[r + 1, c + 1]++;
-                    _map[r, c - 1]++;
-                    _map[r, c + 1]++;
-                }
-                else
-                {
-                    if (r == 0)
-                        _map[r + 1, c]++;
-                    if (r == _row)
-                        _map[r - 1, c]++;
-                    if (c == 0)
-                        _map[r, c + 1]++;
-                    if (c == _col)
-                        _map[r, c - 1]++;
-                }
-                */
             }
+            // 上步可能会更改雷区的数字，需要在最后为雷区填数字
             foreach (int item in randNums)
             {
-                r = item / _col;
-                c = item % _col;
-                _map[r, c] = 9;
+                _map[item / _col, item % _col] = 9;
             }
             #endregion
         }
