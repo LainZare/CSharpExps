@@ -1,4 +1,4 @@
-# Exp3 Notebook
+# Exp3 统计用户输入的字符串中各字符的出现次数
 
 ## C#中`Convert`和`Parse()`比较分析
 

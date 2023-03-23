@@ -39,7 +39,7 @@ namespace Exp4
             int temp;
             while (randNums.Count < _mines)
             {
-                temp = rand.Next(0, _row * _col - 1);
+                temp = rand.Next(0, _row * _col);
                 if (!randNums.Contains(temp))
                 {
                     randNums.Add(temp);
