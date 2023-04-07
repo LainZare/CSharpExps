@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineSweepingGame", "MineSweepingGame\MineSweepingGame.csproj", "{5E17A096-5744-436E-AB2A-57A4B7ED2327}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exp3", "Exp3\Exp3.csproj", "{0671F6E6-A3C4-40D9-97C5-968FA64CE9A9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exp4", "Exp4\Exp4.csproj", "{213B5B0B-487D-4989-B630-0A846C548C48}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exp5", "Exp5\Exp5.csproj", "{76723F63-66DB-4E84-97FF-35A912ABA745}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exp6", "Exp6\Exp6.csproj", "{C38DF46B-6203-4940-BCBB-B79669D2E9A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +36,9 @@ Global
 		{76723F63-66DB-4E84-97FF-35A912ABA745}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76723F63-66DB-4E84-97FF-35A912ABA745}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76723F63-66DB-4E84-97FF-35A912ABA745}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C38DF46B-6203-4940-BCBB-B79669D2E9A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C38DF46B-6203-4940-BCBB-B79669D2E9A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C38DF46B-6203-4940-BCBB-B79669D2E9A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C38DF46B-6203-4940-BCBB-B79669D2E9A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

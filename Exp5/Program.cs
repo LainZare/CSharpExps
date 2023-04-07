@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 
 namespace Exp5
@@ -12,6 +12,7 @@ namespace Exp5
             string[] choiceQuestions;
             string[] clozeQuestions;
             string[] translateQuestions;
+
             try
             {
                 StreamReader sr = new StreamReader("ChoiceQuestions.txt");
@@ -25,12 +26,14 @@ namespace Exp5
                 sr = new StreamReader("TranslateQuestions.txt");
                 lines = sr.ReadToEnd();
                 translateQuestions = lines.Split('\n');
+                sr.Close();
             }
             catch (IOException)
             {
                 Console.WriteLine("File not found!");
                 return;
             }
+
             int choiceQuestionsNum = choiceQuestions.Length / 3;
             int clozeQuestionsNum = clozeQuestions.Length / 2;
             int translateQuestionsNum = translateQuestions.Length / 2;
@@ -40,57 +43,50 @@ namespace Exp5
             int inputedChoiceNum;
             int inputedClozeNum;
             int inputedTranslateNum;
-            try
+
+            while (true)
             {
-                while (true)
-                {
-                    Console.WriteLine($"请输入选择题数量（1-{choiceQuestionsNum}）：");
+                Console.WriteLine($"请输入选择题数量（1-{choiceQuestionsNum}）：");
 
-                    if (int.TryParse(Console.ReadLine(), out inputedChoiceNum)
-                        && inputedChoiceNum >= 1 && inputedChoiceNum <= choiceQuestionsNum)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("输入错误！");
-                    }
+                if (int.TryParse(Console.ReadLine(), out inputedChoiceNum)
+                    && inputedChoiceNum >= 1 && inputedChoiceNum <= choiceQuestionsNum)
+                {
+                    break;
                 }
-                while (true)
+                else
                 {
-                    Console.WriteLine($"请输入填空题数量（1-{clozeQuestionsNum}）：");
-
-                    if (int.TryParse(Console.ReadLine(), out inputedClozeNum)
-                        && inputedClozeNum >= 1 && inputedClozeNum <= clozeQuestionsNum)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("输入错误！");
-                    }
-                }
-                while (true)
-                {
-                    Console.WriteLine($"请输入翻译题数量（1-{translateQuestionsNum}）：");
-
-                    if (int.TryParse(Console.ReadLine(), out inputedTranslateNum)
-                        && inputedTranslateNum >= 1 && inputedTranslateNum <= translateQuestionsNum)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("输入错误！");
-                    }
+                    Console.WriteLine("输入错误！");
                 }
             }
-            catch (System.Exception)
+            while (true)
             {
-                Console.WriteLine("输入错误！");
-                return;
+                Console.WriteLine($"请输入填空题数量（1-{clozeQuestionsNum}）：");
+
+                if (int.TryParse(Console.ReadLine(), out inputedClozeNum)
+                    && inputedClozeNum >= 1 && inputedClozeNum <= clozeQuestionsNum)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("输入错误！");
+                }
             }
-            // 答案数组
+            while (true)
+            {
+                Console.WriteLine($"请输入翻译题数量（1-{translateQuestionsNum}）：");
+
+                if (int.TryParse(Console.ReadLine(), out inputedTranslateNum)
+                    && inputedTranslateNum >= 1 && inputedTranslateNum <= translateQuestionsNum)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("输入错误！");
+                }
+            }
+            // 存放答案
             List<string> answers = new List<string>();
             #endregion
 
@@ -113,6 +109,7 @@ namespace Exp5
                 }
                 randNums.Add(randNum);
             }
+            // 题号
             int questionNumber = 1;
             foreach (int item in randNums)
             {
