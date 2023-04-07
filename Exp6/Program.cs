@@ -27,7 +27,7 @@ namespace Exp6
 
         }
 
-        // 冒泡排序
+        // 冒泡排序，相邻两个元素比较，大的放后面
         public static void BubbleSort(int[] arr)
         {
             int i, j, temp;
@@ -45,7 +45,7 @@ namespace Exp6
             }
         }
 
-        // 选择排序
+        // 选择排序，从剩余元素找到最小的元素放在前面
         public static void SelectSort(int[] arr)
         {
             int i, j, min, temp;
@@ -68,21 +68,33 @@ namespace Exp6
             }
         }
 
-        // 插入排序
+        // 插入排序，提取一元素，从后往前比较，大的向后位移，找到合适的位置插入
         public static void InsertSort(int[] arr)
         {
             int i, j, temp;
+
             for (i = 1; i < arr.Length; i++)
             {
                 temp = arr[i];
-                j = i - 1;
-                while (j >= 0 && arr[j] > temp)
+                for (j = i; j > 0 && arr[j - 1] > temp; j--)
                 {
-                    arr[j + 1] = arr[j];
-                    j--;
+                    arr[j] = arr[j - 1];
                 }
-                arr[j + 1] = temp;
+                arr[j] = temp;
             }
+
+
+            // for (i = 1; i < arr.Length; i++)
+            // {
+            //     temp = arr[i];
+            //     j = i - 1;
+            //     while (j >= 0 && arr[j] > temp)
+            //     {
+            //         arr[j + 1] = arr[j];
+            //         j--;
+            //     }
+            //     arr[j + 1] = temp;
+            // }
         }
     }
 }
